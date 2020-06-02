@@ -1,0 +1,20 @@
+https://edabit.com/challenge/ccZBsRp6pX869gyqx
+
+function encrypt(word) {
+	 const vowels = ['a', 'e', 'o', 'u'];
+    let reversed = word.split('').reverse('');
+    let aca = 'aca';
+    
+    vowels.forEach((curVowel, ind) => {
+         let counter = 0;
+         reversed.forEach((curRev, index) => {
+            if(curRev === curVowel){
+               reversed[index] = ind;
+               counter++
+            }
+         })
+    
+   })
+
+   return `${reversed.join('')}${aca}`;
+}
