@@ -1,0 +1,18 @@
+https://www.hackerrank.com/challenges/time-conversion/problem
+Time Conversion
+
+const timeConversion = (s) => {
+    let regEx = s.match(/AM/g) ? 'AM' : 'PM'
+    
+    const t2 = s;
+    const nT = [];
+    t2.replace(/\D+/g, ' ').split(' ').forEach((cur, ind) => cur !== '' ? nT.push(cur) : null );
+    
+    if(regEx === 'AM' && nT[0] === '12'){ nT[0] = `00` }
+    else if(regEx === 'PM' && nT[0] !== '12'){ nT[0] = `${ parseInt(nT[0]) + 12 }`  }
+ 
+    const final = `${nT[0]}:${nT[1]}:${nT[2]}`
+    return final
+}
+
+timeConversion(07:05:45PM)
