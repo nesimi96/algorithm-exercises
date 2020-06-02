@@ -1,0 +1,21 @@
+https://www.hackerrank.com/challenges/diagonal-difference/problem
+
+Diagonal Difference
+
+
+const diagonalDifference = (arr) => {
+    const firstArr = [];
+    const secArr = [];
+;
+    for(let i = 0; i < arr.length; i++){ firstArr.push(arr[i][i]) }
+    arr.reverse();
+    for(let i = 0; i < arr.length; i++){ secArr.push(arr[i][i]) }
+
+    const reducer = (acc, cur) => acc + cur;
+
+    let res =  Math.abs(firstArr.reduce(reducer) - secArr.reduce(reducer))
+
+    return res ;
+}
+
+diagonalDifference([[11, 2, 4],[4, 5, 6],[10, 8, 12]])
