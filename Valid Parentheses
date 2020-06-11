@@ -1,0 +1,25 @@
+https://leetcode.com/problems/valid-parentheses/
+
+
+var isValid = function(s) {
+    const pairs = [{main: '(', pair: ')'}, {main: '[', pair: ']'}, {main: '{', pair: '}'}]
+     s = s.split('');
+
+     if(s === "") return true
+     if(s.length > 100) return true
+     
+    let counter = 0;
+    for(let i = 0; counter < 100; i++){
+        counter++
+        if(i > s.length) i = 0;
+
+        pairs.forEach((pair, pairInd) => {
+            if(s[i] === pair.main && s[i + 1] === pair.pair){
+                s.splice(i, 1)
+                s.splice(i, 1)
+            }
+        })
+    }
+
+     return !s.length
+};
